@@ -118,8 +118,14 @@
     function doExport() {
       console.log("bbox[" + pt1.x + ", " + pt1.y  + ", " + pt2.x + ", " + pt2.y + "]");
     }
+    $('img').click(function(){
+      $('.selected').removeClass('selected'); // removes the previous selected class
+      $(this).addClass('selected'); // adds the class to the clicked image
+      console.log(this)
+    });
   </script>
   <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr1iKc97i8cvcjWqgVVFi8z9b09c8-_r4&callback=initMap" async defer></script>
   </body>
 </html>
