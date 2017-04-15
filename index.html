@@ -42,12 +42,12 @@
       <div id="footer" class="container-fluid">
         <p>Brought to you by the City of Frederick and the AWS Frederick Meetup group</p>
         <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
           Filter
-        </button> -->
-        <button type="button" class="btn btn-primary btn-lg" onclick="doExport()">
-          Export
         </button>
+        <!-- <button type="button" class="btn btn-primary btn-lg" onclick="doExport()">
+          Export
+        </button> -->
       </div>
 
       <!-- Modal -->
@@ -60,12 +60,15 @@
             </div>
             <div class="modal-body">
               <form role="form">
-                <!-- Filter fields go in here -->
+                <img src="images/contour1.png" alt="Contour">
+                <br>
+                <img src="images/sat1.png" alt="Sat1">
+                <br>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary">Set Filter</button>
+              <button type="submit" class="btn btn-primary" onclick="doExport()">Export</button>
             </div>
           </div>
         </div>
