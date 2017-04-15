@@ -9,4 +9,5 @@ phases:
       - aws s3 sync ./ s3://map.awsfred.patrickpierson.us/
   post_build:
     commands:
+      - aws configure set preview.cloudfront true
       - aws cloudfront create-invalidation --distribution-id E3DMRHHC2OVUVW --paths "/*"
