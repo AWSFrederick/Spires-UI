@@ -42,10 +42,10 @@
       <div id="footer" class="container-fluid">
         <p>Brought to you by the City of Frederick and the AWS Frederick Meetup group</p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
+        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
           Filter
-        </button>
-        <button type="button" class="btn btn-primary btn-lg">
+        </button> -->
+        <button type="button" class="btn btn-primary btn-lg" onclick="doExport()">
           Export
         </button>
       </div>
@@ -78,6 +78,21 @@
 
 <!-- TODO: recenter the map when resizing the window -->
   <script>
+    var bounds = {
+      "xmin": 0.0,
+      "ymin": 0.0,
+      "xmax": 0.0,
+      "ymax": 0.0
+    };
+    var pt1 = {
+      "x": 0.0,
+      "y": 0.0
+    }
+    var pt2 = {
+      "x": 0.0,
+      "y": 0.0
+    }
+    var bboxPointsSet = 0;
     function initMap() {
       var mapDiv = document.getElementById('map');
       var map = new google.maps.Map(mapDiv, {
@@ -86,7 +101,19 @@
       });
       map.addListener('click', function(e) {
         console.log(e.latLng.lat() + ", " + e.latLng.lng());
+        if (bboxPointsSet == 0) {
+          pt1.x = e.latLng.lng();
+          pt1.y = e.latLng.lat();
+          bboxPointsSet = 1;
+        } else {
+          pt2.x = e.latLng.lng();
+          pt2.y = e.latLng.lat();
+          bboxPointsSet = 0;
+        }
       });
+    }
+    function doExport() {
+      console.log("bbox[" + pt1.x + ", " + pt1.y  + ", " + pt2.x + ", " + pt2.y + "]");
     }
   </script>
   <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
