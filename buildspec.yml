@@ -3,7 +3,7 @@ version: 0.1
 phases:
   install:
     commands:
-      - sed -i "s/YOU_API_KEY/$APIKEY/g" index.html
+      - sed -i "s/YOUR_API_KEY/$APIKEY/g" index.html
   build:
     commands:
       - aws s3 sync ./ s3://map.awsfred.patrickpierson.us/
