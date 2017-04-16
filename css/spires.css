@@ -28,6 +28,11 @@ html, body {
 	height: 95%;
 }
 
+.filter_container img {
+	width: 100px;
+	height: 100px;
+}
+
 @media screen and (max-width: 50em) {
     h1 {font-size:2em;}
     h2 {font-size: 1.4em;}

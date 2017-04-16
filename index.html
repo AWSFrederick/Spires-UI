@@ -22,7 +22,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="container">
+  <!-- <body class="container"> -->
+  <body>
       <div id="header" class="container-fluid">
         <h1>Frederick Spires GIS Data Export</h1>
       </div>
@@ -45,9 +46,6 @@
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
           Filter
         </button>
-        <!-- <button type="button" class="btn btn-primary btn-lg" onclick="doExport()">
-          Export
-        </button> -->
       </div>
 
       <!-- Modal -->
@@ -58,37 +56,37 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="filterModalLabel">Select data to be exported</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body filter_container">
               <form role="form">
-                <img src="images/Aerial1958.png" alt="Aerial_1958"  height="150" width="150">
-                <img src="images/Aerial1964.png" alt="Aerial_1964"  height="150" width="150">
-                <img src="images/Aerial1970.png" alt="Aerial_1970"  height="150" width="150">
-                <img src="images/Aerial1983.png" alt="Aerial_1983"  height="150" width="150">
-                <img src="images/Aerial1988.png" alt="Aerial_1988"  height="150" width="150">
-                <img src="images/Aerial2003.png" alt="Aerial_2003"  height="150" width="150">
-                <img src="images/Aerial2005.png" alt="Aerial_2005"  height="150" width="150">
-                <img src="images/Aerial2007.png" alt="Aerial_2007"  height="150" width="150">
-                <img src="images/Aerial2011.png" alt="Aerial_2011"  height="150" width="150">
-                <img src="images/Aerial2014.png" alt="Aerial_2014"  height="150" width="150">
-                <img src="images/Annexes.png" alt="Annexes"  height="150" width="150">
-                <img src="images/BaseCombined.png" alt="BaseCombined"  height="150" width="150">
-                <img src="images/Contours.png" alt="Contours"  height="150" width="150">
-                <img src="images/Electric.png" alt="Electric"  height="150" width="150">
-                <img src="images/Floodplain.png" alt="Floodplain"  height="150" width="150">
-                <img src="images/Frederick.png" alt="Frederick"  height="150" width="150">
-                <img src="images/gimagery.png" alt="gImagery"  height="150" width="150">
-                <img src="images/historicDistrict.png" alt="historicDistrict"  height="150" width="150">
-                <img src="images/ImprovementPlans.png" alt="ImprovementPlans"  height="150" width="150">
-                <img src="images/Nacs.png" alt="Nacs"  height="150" width="150">
-                <img src="images/Parcels.png" alt="Parcels"  height="150" width="150">
-                <img src="images/Plats.png" alt="Plats"  height="150" width="150">
-                <img src="images/PlowRegions.png" alt="PlowRegions"  height="150" width="150">
-                <img src="images/Sewer.png" alt="Sewer"  height="150" width="150">
-                <img src="images/Storm.png" alt="Storm"  height="150" width="150">
-                <img src="images/Subdivisions.png" alt="Subdivisions"  height="150" width="150">
-                <img src="images/Utilities.png" alt="Utilities"  height="150" width="150">
-                <img src="images/Water.png" alt="Water"  height="150" width="150">
-                <img src="images/Zoning.png" alt="Zoning"  height="150" width="150">
+                <img src="images/Aerial1958.png" alt="Aerial_1958">
+                <img src="images/Aerial1964.png" alt="Aerial_1964">
+                <img src="images/Aerial1970.png" alt="Aerial_1970">
+                <img src="images/Aerial1983.png" alt="Aerial_1983">
+                <img src="images/Aerial1988.png" alt="Aerial_1988">
+                <img src="images/Aerial2003.png" alt="Aerial_2003">
+                <img src="images/Aerial2005.png" alt="Aerial_2005">
+                <img src="images/Aerial2007.png" alt="Aerial_2007">
+                <img src="images/Aerial2011.png" alt="Aerial_2011">
+                <img src="images/Aerial2014.png" alt="Aerial_2014">
+                <img src="images/Annexes.png" alt="Annexes">
+                <img src="images/BaseCombined.png" alt="BaseCombined">
+                <img src="images/Contours.png" alt="Contours">
+                <img src="images/Electric.png" alt="Electric">
+                <img src="images/Floodplain.png" alt="Floodplain">
+                <img src="images/Frederick.png" alt="Frederick">
+                <img src="images/gimagery.png" alt="gImagery">
+                <img src="images/historicDistrict.png" alt="historicDistrict">
+                <img src="images/ImprovementPlans.png" alt="ImprovementPlans">
+                <img src="images/Nacs.png" alt="Nacs">
+                <img src="images/Parcels.png" alt="Parcels">
+                <img src="images/Plats.png" alt="Plats">
+                <img src="images/PlowRegions.png" alt="PlowRegions">
+                <img src="images/Sewer.png" alt="Sewer">
+                <img src="images/Storm.png" alt="Storm">
+                <img src="images/Subdivisions.png" alt="Subdivisions">
+                <img src="images/Utilities.png" alt="Utilities">
+                <img src="images/Water.png" alt="Water">
+                <img src="images/Zoning.png" alt="Zoning">
               </form>
             </div>
             <div class="modal-footer">
@@ -106,47 +104,51 @@
 
 <!-- TODO: recenter the map when resizing the window -->
   <script>
-    var bounds = {
-      "xmin": 0.0,
-      "ymin": 0.0,
-      "xmax": 0.0,
-      "ymax": 0.0
+    var rect_bounds = {
+      north: 39.45475167817998,
+      south: 39.36297059491874,
+      east: -77.34786987304688,
+      west: -77.48588562011719
     };
-    var pt1 = {
-      "x": 0.0,
-      "y": 0.0
-    }
-    var pt2 = {
-      "x": 0.0,
-      "y": 0.0
-    }
+
+    var rectangle;
+    var map;
+    var data_set;
+
     var bboxPointsSet = 0;
+
     function initMap() {
       var mapDiv = document.getElementById('map');
-      var map = new google.maps.Map(mapDiv, {
+      map = new google.maps.Map(mapDiv, {
         center: {lat: 39.4139, lng: -77.4111},
         zoom: 11
       });
-      map.addListener('click', function(e) {
-        console.log(e.latLng.lat() + ", " + e.latLng.lng());
-        if (bboxPointsSet == 0) {
-          pt1.x = e.latLng.lng();
-          pt1.y = e.latLng.lat();
-          bboxPointsSet = 1;
-        } else {
-          pt2.x = e.latLng.lng();
-          pt2.y = e.latLng.lat();
-          bboxPointsSet = 0;
-        }
+
+      rectangle = new google.maps.Rectangle({
+        bounds: rect_bounds,
+        editable: true,
+        draggable: true
       });
+      rectangle.setMap(map);
     }
+
     function doExport() {
-      console.log("bbox[" + pt1.x + ", " + pt1.y  + ", " + pt2.x + ", " + pt2.y + "]");
+      var ne = rectangle.getBounds().getNorthEast();
+      var sw = rectangle.getBounds().getSouthWest();
+      console.log('bbox: [' +
+        sw.lat() + ', ' + sw.lng() + ', ' + ne.lat() + ', ' + ne.lng() + ']');
+      //http://awsfred.patrickpierson.us/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
+      var url_base = 'http://awsfred.patrickpierson.us/bbox/map/';
+      var url_full = url_base + '/' + data_set + '/coordinates='
+        + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
+      console.log("URL: " + url_full);
     }
+
     $('img').click(function(){
       $('.selected').removeClass('selected'); // removes the previous selected class
       $(this).addClass('selected'); // adds the class to the clicked image
       console.log(this['alt'])
+      data_set = this['alt'];
     });
   </script>
   <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
