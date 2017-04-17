@@ -10,4 +10,4 @@ phases:
   post_build:
     commands:
       - aws configure set preview.cloudfront true
-      - aws cloudfront create-invalidation --distribution-id E3DMRHHC2OVUVW --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E331D9A4QW76J0 --paths "/*"
