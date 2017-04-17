@@ -137,8 +137,8 @@
       var sw = rectangle.getBounds().getSouthWest();
       console.log('bbox: [' +
         sw.lat() + ', ' + sw.lng() + ', ' + ne.lat() + ', ' + ne.lng() + ']');
-      //http://awsfred.patrickpierson.us/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
-      var url_base = 'http://awsfred.patrickpierson.us/bbox/map';
+      //http://api.mapfrederick.city/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
+      var url_base = 'http://api.mapfrederick.city/bbox/map';
       var url_full = url_base + '/' + data_set + '/coordinates='
         + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
       console.log("URL: " + url_full);
