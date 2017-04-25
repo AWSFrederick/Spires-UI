@@ -1,0 +1,13 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - sed -i "s/YOUR_API_KEY/$APIKEY/g" index.html
+  build:
+    commands:
+      - aws s3 sync ./ s3://www.mapfrederick.city/
+  post_build:
+    commands:
+      - aws configure set preview.cloudfront true
+      - aws cloudfront create-invalidation --distribution-id E331D9A4QW76J0 --paths "/*"

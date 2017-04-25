@@ -1,0 +1,73 @@
+
+    <!-- Map Grid Section -->
+    <section id="map">
+        <div class="container">
+            <div class="row">
+                <div>
+                  <p>Data provided by the City of Frederick's <a href="https://www.cityoffrederick.com/274/Technology" target="_blank">IT department</a>.
+                    This site was created and maintained by the Frederick Meetup Groups.  For more information on them go to our <a href="./about.html" target="_blank">About Us</a> page
+                    Select the region to be filtered below by sizing the box over the area needed. Then click "Filter".</p>
+                </div>
+            </div>
+          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+      <!-- TODO: recenter the map when resizing the window -->
+        <script>
+          var rect_bounds = {
+            north: 39.45475167817998,
+            south: 39.36297059491874,
+            east: -77.34786987304688,
+            west: -77.48588562011719
+          };
+
+          var rectangle;
+          var map;
+          var data_set;
+
+          var bboxPointsSet = 0;
+
+          function initMap() {
+            var mapDiv = document.getElementById('map');
+            map = new google.maps.Map(mapDiv, {
+              center: {lat: 39.4139, lng: -77.4111},
+              zoom: 11
+            });
+
+            rectangle = new google.maps.Rectangle({
+              bounds: rect_bounds,
+              editable: true,
+              draggable: true
+            });
+            rectangle.setMap(map);
+          }
+
+          function doExport() {
+            var ne = rectangle.getBounds().getNorthEast();
+            var sw = rectangle.getBounds().getSouthWest();
+            console.log('bbox: [' +
+              sw.lat() + ', ' + sw.lng() + ', ' + ne.lat() + ', ' + ne.lng() + ']');
+            //http://api.mapfrederick.city/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
+            var url_base = 'https://api.mapfrederick.city/bbox/map';
+            var url_full = url_base + '/' + data_set + '/coordinates='
+              + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
+            console.log("URL: " + url_full);
+            var win = window.open(url_full, '_blank');
+            win.focus();
+          }
+
+          $('img').click(function(){
+            $('.selected').removeClass('selected'); // removes the previous selected class
+            $(this).addClass('selected'); // adds the class to the clicked image
+            console.log(this['alt'])
+            data_set = this['alt'];
+          });
+        </script>
+        <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+            </div>
+        </div>
+    </section>

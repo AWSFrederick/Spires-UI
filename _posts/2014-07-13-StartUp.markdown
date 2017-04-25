@@ -1,0 +1,10 @@
+---
+layout: default
+modal-id: 5
+date: 2014-07-15
+img: meetup-logo.jpg
+alt: image-alt
+name: Frederick Startup Community
+meetup: https://www.meetup.com/Frederick-Startup-Community/
+description: This is the meetup description.
+---

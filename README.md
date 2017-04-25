@@ -1,9 +1,32 @@
-## Spires GIS Data Export UI
+Freelancer Jekyll theme
+=========================
 
-Just a quick map UI starting point.
+Jekyll theme based on [Freelancer bootstrap theme ](http://startbootstrap.com/template-overviews/freelancer/)
 
-Drag or resize the bounding box, select 'filter', then select which data set to export and then 'export'. The UI will generate the url for the export but not make the call yet. This still needs to be hooked up.
+## How to use
+ - Place a image in `/img/portfolio/`
+ - Replace `you@email.com` in `_includes/contact_static.html` with your email address. refer to [formspree](http://formspree.io/) for more information.
+ - Create posts to display your projects. Use the follow as an example:
+```txt
+---
+layout: default
+modal-id: 1
+date: 2014-07-18
+img: cabin.png
+alt: image-alt
+project-date: July 2014
+client: The Client
+category: Web Development
+description: The description of the project
 
-Don't forget to fill in your own Google API key.
+---
+```
 
-Hack away.
+## Demo
+View this jekyll theme in action [here](https://jeromelachaud.github.io/freelancer-theme)
+
+## Screenshot
+![screenshot](https://raw.githubusercontent.com/jeromelachaud/freelancer-theme/master/screenshot.png)
+
+---------
+For more details, read the [documentation](http://jekyllrb.com/)

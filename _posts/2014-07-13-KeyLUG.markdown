@@ -1,0 +1,10 @@
+---
+layout: default
+modal-id: 2
+date: 2014-07-15
+img: meetup-logo.jpg
+alt: image-alt
+name: KeyLUG (Linux User Group)
+meetup: https://www.meetup.com/KeyLUG/
+description: This is the meetup description.
+---
