@@ -186,7 +186,7 @@
       var url_full = url_base + '/' + data_set + '/coordinates='
         + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
       console.log("URL: " + url_full);
-      var win = window.open(url_full, '_blank');
+      var win = window.open('./export.html?url=' + url_full, '_blank');
       win.focus();
     }
 
