@@ -42,10 +42,18 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
       }
       var url = getParameterByName('url');
+      function ParseUrl() {
+        if (url.includes('json')) {
+          console.log('json')
+        }
+        if (url.includes('map')) {
+          Image()
+        }
+      }
       function Image()
       {
-      var image = url;
-      document.write('<img src=' + image + '>');
+        var image = url;
+        document.write('<img src=' + image + '>');
       }
     </script>
   </head>
@@ -58,7 +66,7 @@
       <div id="content" class="container-fluid">
         <div>
           <script>
-            Image()
+            ParseUrl()
             console.log(url)
           </script>
         </div>
