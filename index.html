@@ -134,6 +134,9 @@
               </form>
             </div>
             <div class="modal-footer">
+              <input type="radio" name="type" id="json"/>JSON
+              <input type="radio" name="type" id="kmz"/>KMZ
+              <input type="radio" name="type" id="map"/>Image
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               <button type="submit" class="btn btn-primary" onclick="doExport()">Export</button>
             </div>
@@ -177,13 +180,25 @@
     }
 
     function doExport() {
+      if(document.getElementById('json').checked) {
+        type = 'json'
+        console.log('json');
+      }
+      else if(document.getElementById('kmz').checked) {
+        type = 'kmz'
+        console.log('kmz');
+      }
+      else {
+        type = 'map'
+        console.log('map');
+      }
       var ne = rectangle.getBounds().getNorthEast();
       var sw = rectangle.getBounds().getSouthWest();
       console.log('bbox: [' +
         sw.lat() + ', ' + sw.lng() + ', ' + ne.lat() + ', ' + ne.lng() + ']');
       //http://api.mapfrederick.city/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
-      var url_base = 'https://api.mapfrederick.city/bbox/map';
-      var url_full = url_base + '/' + data_set + '/coordinates='
+      var url_base = 'https://api.mapfrederick.city/bbox';
+      var url_full = url_base + '/' + type + '/' + data_set + '/coordinates='
         + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
       console.log("URL: " + url_full);
       var win = window.open('./export.html?url=' + url_full, '_blank');
@@ -198,6 +213,6 @@
     });
   </script>
   <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTztKGcbPDMbXEygj4xkkffCoEdr3Yx9Q&callback=initMap" async defer></script>
   </body>
 </html>
