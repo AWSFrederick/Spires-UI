@@ -199,7 +199,7 @@
       //http://api.mapfrederick.city/bbox/map/Contours/coordinates=39.453518,-77.421502,39.450468,-77.413600
       var url_base = 'https://api.mapfrederick.city/bbox';
       var url_full = url_base + '/' + type + '/' + data_set + '/coordinates='
-        + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng();
+        + sw.lat() + ',' + sw.lng() + ',' + ne.lat() + ',' + ne.lng() + '/';
       console.log("URL: " + url_full);
       var win = window.open('./export.html?url=' + url_full, '_blank');
       win.focus();
@@ -213,6 +213,6 @@
     });
   </script>
   <!-- Replace YOUR_API_KEY with your Google API key in the line below -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTztKGcbPDMbXEygj4xkkffCoEdr3Yx9Q&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   </body>
 </html>
