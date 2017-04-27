@@ -7,3 +7,10 @@ Drag or resize the bounding box, select 'filter', then select which data set to 
 Don't forget to fill in your own Google API key.
 
 Hack away.
+
+
+### Running locally
+
+> python -m SimpleHTTPServer 8000
+
+This is needed now because of the cors requirement

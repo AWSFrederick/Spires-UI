@@ -46,12 +46,14 @@
       function ParseUrl() {
         if (url.includes('json')) {
           console.log('json')
-          $.getJSON(url, function(data) {
-              //data is the JSON string
-          });
+          document.write('<a href=' + url + '>View Raw Json</a>')
+        }
+        else if (url.includes('kmz')) {
+          document.write('<a href=' + url + '>KMZ Download</a>')
+          console.log('kmz')
         }
         else if (url.includes('map')) {
-          console.log('Get Image')
+          console.log('map')
           var image = url;
           document.write('<img src=' + image + '>');
         }
