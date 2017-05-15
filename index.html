@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="300" >
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Map Frederick City</title>
     <!-- Google Analytics -->
@@ -49,11 +50,30 @@
           <div id="map"></div>
         </div>
 
-        <div id="filter" class="container-fluid">Filter</div>
+        <div id="filter" class="container-fluid"></div>
       </div>
       <br>
       <div id="footer" class="container-fluid">
-        <p>Brought to you by the City of Frederick and the AWS Frederick Meetup group</p>
+        <br>
+        <script>
+        var request;
+        if(window.XMLHttpRequest)
+            request = new XMLHttpRequest();
+        else
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        request.open('GET', 'https://api.mapfrederick.city/export/reststatus/', false);
+        request.send(); // there will be a 'pause' here until the response to come.
+        // the object request will be actually modified
+        if (request.status === 200) {
+          console.log('Spires is up')
+        }
+        else {
+          console.log(request.status)
+          document.write("Attention: The backend GIS server is down.  We have no control over this endpoint. Please stand by. The page will refresh in 5 minutes.");
+        }
+        </script>
+        <br>
+        <p>Brought to you by the City of Frederick and the Frederick Meetup group</p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filterModal">
           Filter
